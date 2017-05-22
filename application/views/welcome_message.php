@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>CS 153 website currently down. Please come back after a few hours.</h1>
+	<h1>Putty na</h1>
 </div>
 
 </body>
