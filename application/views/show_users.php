@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>CS 153 	Project Website</title>
+	<title>CS 153 Project Website</title>
 
 	<style type="text/css">
 
@@ -95,9 +95,9 @@ views/ show_users.php</h1>
 
 <td><?php echo $u_key->id; ?></td>
 
-<td><?php echo $u_key->name; ?></td>
-
 <td><?php echo $u_key->username; ?></td>
+
+<td><?php echo $u_key->name; ?></td>
 
 <td><?php echo $u_key->address; ?></td>
 
