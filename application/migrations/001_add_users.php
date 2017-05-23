@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Add_user extends CI_Migration {
+class Migration_Add_users extends CI_Migration {
 
         public function up()
         {
@@ -30,13 +30,14 @@ class Migration_Add_user extends CI_Migration {
                         'type' => array(
                                 'type' => 'INT',
                         ),
-                ));
+
+                ));     
                 $this->dbforge->add_key('id', TRUE);
-                $this->dbforge->create_table('user');
+                $this->dbforge->create_table('users');
         }
 
         public function down()
         {
-                $this->dbforge->drop_table('user');
+                $this->dbforge->drop_table('users');
         }
 }
