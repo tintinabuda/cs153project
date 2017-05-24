@@ -36,7 +36,7 @@ class User extends CI_Model {
     	$this->db->where('id',$id);
     	return $this->db->update('users', $data);
     }
-    function get_user_row($params = array()){
+    public function get_user_row($params = array()){
         $this->db->select('*');
         $this->db->from('users');
 
@@ -70,6 +70,11 @@ class User extends CI_Model {
 
         //return fetched data
         return $result;
+    }
+    public function get_user_info($id){
+        $query = $this->db->get_where('users',array('id'=>$id));
+        return $query->result();
+
     }
 }
 ?>

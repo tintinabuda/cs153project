@@ -95,7 +95,42 @@ class Users extends CI_Controller {
 		$this->user->delete($id);
         redirect('users/');
 	}
-    public function update(){
+    public function edit($id){
+        $data = array();
+        $data['users'] = $this->db->query("SELECT * FROM users")->result();
+
+        if($this->input->post('upSubmit')){
+            $this->form_validation->set_rules('name', 'Name', 'trim|required|strip_tags');
+            $this->form_validation->set_rules('address', 'Address', 'trim|required|strip_tags');
+            $this->form_validation->set_rules('birthday', 'Birthday', 'trim|required|strip_tags');
+            $this->form_validation->set_rules('type', 'User', 'trim|required|strip_tags');
+
+            $user_data = array(
+                'name' => $this->input->post('name'),
+                'address' => $this->input->post('address'),
+                'birthday' => $this->input->post('birthday'),
+                'type' => $this->input->post('type'),//default is typical user
+            );
+
+            if($this->form_validation->run() == true){
+                $up = $this->user->update($id, $user_data);
+                if($up){
+                    $this->session->set_userdata('success_msg', 'Your registration was successful. Please login to your account.');
+                    redirect('users/');
+                }else{
+                    $data['error_msg'] = 'Some problems occured, please try again.';
+                }
+            }
+        }
+
+      if($this->session->userdata('LoggedIn')){
+            $data['user'] = $this->user->get_user_info($id);
+            //load the view
+            $this->load->view('_update', $data);
+        } else{
+            redirect('users/login');
+        }
 
     }
+
 }
