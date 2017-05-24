@@ -32,7 +32,7 @@
           echo '<p class="statusMsg">'.$error_msg.'</p>';
       }
       ?>
-      <form action="" method="post">
+      <form action="home.php" method="post">
           <div class="form-group has-feedback">
               <input type="username" class="form-control" name="username" placeholder="Username" required="" value="">
               <?php echo form_error('username','<span class="help-block">','</span>'); ?>
@@ -45,7 +45,7 @@
               <input type="submit" name="loginSubmit" class="btn-primary" value="Submit"/>
           </div>
       </form>
-      <p class="footInfo">Don't have an account? <a href="<?php echo base_url(); ?>index.php/users/registration">Register here</a></p>
+      <p class="footInfo">Don't have an account? <a href="<?php echo base_url(); ?>index.php/users/register">Register here</a></p>
   </div>
 </body>
 </html>
