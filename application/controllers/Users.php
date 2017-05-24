@@ -56,6 +56,7 @@ class Users extends CI_Controller {
 	}
     public function login(){
         $data = array();
+        $user_info = array();
         if($this->session->userdata('LoggedIn')){
             //insert redirect here
             redirect('/');
@@ -74,7 +75,14 @@ class Users extends CI_Controller {
                 if($checkLogin){
                     $this->session->set_userdata('LoggedIn',TRUE);
                     $this->session->set_userdata('userId',$checkLogin['id']);
-                        redirect('/');
+
+                    $user_info['username'] = $this->session->userdata('username');
+                    $user_info['name'] = $this->session->userdata('name'); 
+                    $user_info['address'] = $this->session->userdata('address');
+                    $user_info['birthday'] = $this->session->userdata('birthday');
+
+                    $this->load->view('/home', $data);
+                    //redirect('/');
                 }else{
                     $data['error_msg'] = 'Wrong username or password, please try again.';
                 }
