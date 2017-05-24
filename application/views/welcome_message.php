@@ -66,7 +66,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body>
-
+<?php
+	echo $menu_top;
+?>
 <div id="container">
 	<h1>CS 153 website down. Please come back after a few hours.</h1>
 </div>

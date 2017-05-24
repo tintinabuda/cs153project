@@ -16,6 +16,16 @@ class Migration_Add_users extends CI_Migration {
                         'username' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '16',
+                                'unique' => TRUE,
+                        ),
+                        'password' => array(
+                                'type' =>'VARCHAR',
+                                'constraint' => 50,
+                        ),
+                        'salt' => array(
+                                'type'=> 'VARCHAR',
+                                'constraint' => 50,
+
                         ),
                         'name' => array(
                                 'type' => 'VARCHAR',
@@ -30,6 +40,7 @@ class Migration_Add_users extends CI_Migration {
                         'type' => array(
                                 'type' => 'INT',
                         ),
+
 
                 ));     
                 $this->dbforge->add_key('id', TRUE);
