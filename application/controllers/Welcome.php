@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->library(array('session'));
 
-		$this->load->model(array('CI_auth', 'CI_menu'));
+		
 
 	}
 
@@ -30,8 +30,6 @@ class Welcome extends CI_Controller {
 	{
 
 		$data = array(
-
-		'menu_top' => $this->CI_menu->menu_top(),
 
 		);
 
