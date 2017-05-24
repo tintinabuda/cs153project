@@ -19,8 +19,6 @@
                 color: black;
             }
 
-    </style>
-
 </head>
 <body>
 
@@ -28,5 +26,9 @@
   <?php echo $name ?>
   <?php echo $address ?>
   <?php echo $birthday ?>
+
+</head>
+<body>
+
 
 </body>

@@ -32,7 +32,7 @@
           echo '<p class="statusMsg">'.$error_msg.'</p>';
       }
       ?>
-      <form action="" method="post">
+      <form action="home.php" method="post">
           <div class="form-group has-feedback">
               <input type="username" class="form-control" name="username" placeholder="Username" required="" value="">
               <?php echo form_error('username','<span class="help-block">','</span>'); ?>
