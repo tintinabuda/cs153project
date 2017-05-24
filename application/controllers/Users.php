@@ -81,7 +81,7 @@ class Users extends CI_Controller {
                     $user_info['address'] = $this->session->userdata('address');
                     $user_info['birthday'] = $this->session->userdata('birthday');
 
-                    $this->load->view('/home', $data);
+                    $this->load->view('_home', $data);
                     //redirect('/');
                 }else{
                     $data['error_msg'] = 'Wrong username or password, please try again.';

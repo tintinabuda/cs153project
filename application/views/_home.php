@@ -27,8 +27,5 @@
   <?php echo $address ?>
   <?php echo $birthday ?>
 
-</head>
-<body>
-
 
 </body>
