@@ -1,5 +1,4 @@
 <?php
-
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Users extends CI_Controller {
@@ -55,8 +54,48 @@ class Users extends CI_Controller {
 		$user_data = array();
 
 	}
+    public function login(){
+        $data = array();
+        if($this->session->userdata('LoggedIn')){
+            //insert redirect here
+            redirect('/');
+        }
+
+        if($this->input->post('loginSubmit')){
+            $this->form_validation->set_rules('username', 'username', 'required');
+            $this->form_validation->set_rules('password', 'password', 'required');
+            if ($this->form_validation->run() == true) {
+                $con['returnType'] = 'single';
+                $con['conditions'] = array(
+                    'username'=>$this->input->post('username'),
+                    'password' => md5($this->input->post('password'))
+                );
+                $checkLogin = $this->user->get_user_row($con);
+                if($checkLogin){
+                    $this->session->set_userdata('LoggedIn',TRUE);
+                    $this->session->set_userdata('userId',$checkLogin['id']);
+                        redirect('/');
+                }else{
+                    $data['error_msg'] = 'Wrong username or password, please try again.';
+                }
+            }
+        }
+        //load the view: views/users/login
+        $this->load->view('_login', $data);
+
+
+    }
+    public function logout(){
+        $this->session->unset_userdata('LoggedIn');
+        $this->session->unset_userdata('userId');
+        $this->session->sess_destroy();
+        redirect('users/login/');
+    }
 	public function delete($id){
 		$this->user->delete($id);
-		$this->index();
+        redirect('users/');
 	}
+    public function update(){
+
+    }
 }
