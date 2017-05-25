@@ -103,6 +103,12 @@ class Users extends CI_Controller {
 		$this->user->delete($id);
         redirect('users/');
 	}
+
+    public function update(){
+        $data = $this->input->post();
+        $result = $this->users->update($data);
+        redirect(base_url().'users/home');         
+    }
     public function edit($id){
         $data = array();
         $data['users'] = $this->db->query("SELECT * FROM users")->result();
