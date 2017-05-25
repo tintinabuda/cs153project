@@ -104,6 +104,8 @@ class Users extends CI_Controller {
         redirect('users/');
 	}
     public function update(){
-
+        $data = $this->input->post();
+        $result = $this->users->update($data);
+        redirect(base_url().'users/home');         
     }
 }
