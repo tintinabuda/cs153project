@@ -55,6 +55,7 @@ class Users extends CI_Controller {
 
 	}
     public function login(){
+        echo "helloooo please gumana na u";
         $data = array();
         $user_info = array();
         if($this->session->userdata('LoggedIn')){
