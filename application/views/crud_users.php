@@ -86,6 +86,7 @@ views/ show_users.php</h1>
 <th scope="col">Address</th>
 
 <th scope="col">Birthday</th>
+<th scope="col">type</th>
 <th scope="col">Actions</th>
 </tr>
 
@@ -102,6 +103,7 @@ views/ show_users.php</h1>
 <td><?php echo $u_key->address; ?></td>
 
 <td><?php echo $u_key->birthday; ?></td>
+<td><?php echo $u_key->type; ?></td>
 <td><a href="<?php echo site_url('users/delete/'.$u_key->id)?>" onClick="show_confirm('delete',<?php echo $u_key->id;?>)">Delete </a></td>
 <td><a href="<?php echo site_url('users/edit/'.$u_key->id)?>" onClick="show_confirm('delete',<?php echo $u_key->id;?>)">Edit</a></td>
 </tr>

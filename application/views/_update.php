@@ -25,15 +25,15 @@
 <body>
 
 <div class="container">
-    <?php foreach ($user as $u_key){ ?>
-    <h2>Editing User   <b><i> <?php echo $u_key->username;?></i></b></h2>
+    <?php foreach ($user as $u){ ?>
+    <h2>Editing User   <b><i> <?php echo $u->username;?></i></b></h2>
 
 
 
     <form action="" method="post">
         <div class="form-group">
             <label>name</label>
-            <input type="text" class="form-control" name="name" placeholder="Name" required="" value="<?php echo !empty($user['name'])?$user['name']:''; ?>">
+            <input type="text" class="form-control" name="name" placeholder="Name" required="" value="<?php echo !empty($u->name)?$u->name:''; ?>">
           <?php echo form_error('name','<span class="help-block">','</span>'); ?>
         </div>
 
@@ -41,36 +41,20 @@
         <!-- address -->
         <div class="form-group">
             <label>address</label>
-            <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo !empty($user['address'])?$user['address']:''; ?>">
+            <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo !empty($u->address)?$u->address:''; ?>">
             <?php echo form_error('address','<span class="help-block">','</span>'); ?>
         </div>
         <!-- bday -->
         <div class="form-group">
             <label>birthday</label>
-            <input type="date" class="form-control" name="birthday" placeholder="Birthday" value="<?php echo !empty($user['birthday'])?$data['birthday']:''; ?>">
+            <input type="date" class="form-control" name="birthday" placeholder="Birthday" value="<?php echo !empty($u->birthday)?$u->birthday:''; ?>">
             <?php echo form_error('birthday','<span class="help-block">','</span>'); ?>
         </div>
-      <div class="form-group">
-              <label>user type</label>
-              <select class="form-control">
-              <option value="1">Admin</option>
-              <option value="0">User</option>
-  
-              </select>
-              <input type="number" class="form-control" name="birthday" placeholder="Birthday" value="<?php echo !empty($user['birthday'])?$data['birthday']:''; ?>">
-              <?php echo form_error('birthday','<span class="help-block">','</span>'); ?>
-          </div>
-
-<!--         <div class="form-group">
-          <label>password</label>
-          <input type="password" class="form-control" name="password" placeholder="Password" required="">
-          <?php echo form_error('password','<span class="help-block">','</span>'); ?>
-        </div>
         <div class="form-group">
-          <label>password confirm</label>
-          <input type="password" class="form-control" name="conf_password" placeholder="Confirm password" required="">
-          <?php echo form_error('conf_password','<span class="help-block">','</span>'); ?>
-        </div> -->
+            <label>type (user = 0, admin = 1) </label>
+            <input type="text" class="form-control" name="type" placeholder="" value="<?php echo !empty($u->type)?$u->type:''; ?>">
+            <?php echo form_error('birthday','<span class="help-block">','</span>'); ?>
+        </div>
 
         <div class="form-group">
             <input type="submit" name="upSubmit" class="btn-primary" value="Submit"/>
